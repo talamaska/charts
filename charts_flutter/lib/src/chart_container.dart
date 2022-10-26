@@ -206,7 +206,8 @@ class ChartContainerRenderObject<D> extends RenderCustomPaint
       _ambiguate(SchedulerBinding.instance)!.scheduleFrame();
     }
 
-    _ambiguate(SchedulerBinding.instance)!.addPostFrameCallback(startAnimationController);
+    _ambiguate(SchedulerBinding.instance)!
+        .addPostFrameCallback(startAnimationController);
   }
 
   /// Request Flutter to rebuild the widget/container of chart.
@@ -299,6 +300,12 @@ class ChartContainerRenderObject<D> extends RenderCustomPaint
         exploreMode: _exploreMode,
         a11yNodes: _a11yNodes ?? [],
         textDirection: textDirection);
+  }
+
+  @override
+  void dispose() {
+    _chart!.destroy();
+    super.dispose();
   }
 }
 
