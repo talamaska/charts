@@ -26,9 +26,9 @@ import '../../common/text_style.dart' show TextStyle;
 import '../../data/series.dart' show AccessorFn;
 import '../cartesian/axis/spec/axis_spec.dart' show TextStyleSpec;
 import '../common/chart_canvas.dart' show ChartCanvas;
+import 'arc_renderer_decorator.dart' show ArcRendererDecorator;
 import 'arc_renderer_element.dart'
     show ArcRendererElement, ArcRendererElementList;
-import 'arc_renderer_decorator.dart' show ArcRendererDecorator;
 
 /// Renders labels for arc renderers.
 ///
@@ -240,7 +240,8 @@ class ArcLabelDecorator<D> extends ArcRendererDecorator<D> {
       ..color = labelSpec.color ?? Color.black
       ..fontFamily = labelSpec.fontFamily
       ..fontSize = labelSpec.fontSize ?? 12
-      ..lineHeight = labelSpec.lineHeight;
+      ..lineHeight = labelSpec.lineHeight
+      ..fontWeight = labelSpec.fontWeight;
   }
 
   /// Helper function to get datum specific style

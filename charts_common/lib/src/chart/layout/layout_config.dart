@@ -13,6 +13,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'dart:math' show min;
+
 /// Collection of configurations that apply to the [LayoutManager].
 class LayoutConfig {
   final MarginSpec leftSpec;
@@ -101,7 +103,7 @@ class MarginSpec {
     final _minPercent = this._minPercent;
     if (_minPixel != null) {
       assert(_minPixel < totalPixels);
-      return _minPixel;
+      return min(_minPixel, totalPixels);
     } else if (_minPercent != null) {
       return (totalPixels * (_minPercent / 100)).round();
     } else {
@@ -115,7 +117,7 @@ class MarginSpec {
     final _maxPercent = this._maxPercent;
     if (_maxPixel != null) {
       assert(_maxPixel < totalPixels);
-      return _maxPixel;
+      return min(_maxPixel, totalPixels);
     } else if (_maxPercent != null) {
       return (totalPixels * (_maxPercent / 100)).round();
     } else {

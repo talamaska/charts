@@ -22,9 +22,10 @@ import 'package:charts_common/common.dart' as common
         RTLSpec,
         Series,
         SeriesRendererConfig;
-import '../behaviors/chart_behavior.dart' show ChartBehavior;
+
 import '../base_chart.dart' show LayoutConfig;
 import '../base_chart_state.dart' show BaseChartState;
+import '../behaviors/chart_behavior.dart' show ChartBehavior;
 import '../cartesian_chart.dart' show CartesianChart;
 import '../selection_model_config.dart' show SelectionModelConfig;
 
@@ -49,6 +50,7 @@ class NumericComboChart extends CartesianChart<num> {
     common.RTLSpec? rtlSpec,
     LayoutConfig? layoutConfig,
     bool defaultInteractions = true,
+    bool? flipVerticalAxis = false,
   }) : super(
           seriesList,
           animate: animate,
@@ -63,6 +65,7 @@ class NumericComboChart extends CartesianChart<num> {
           rtlSpec: rtlSpec,
           layoutConfig: layoutConfig,
           defaultInteractions: defaultInteractions,
+          flipVerticalAxis: flipVerticalAxis,
         );
 
   @override

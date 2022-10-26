@@ -24,11 +24,12 @@ import 'package:charts_common/common.dart' as common
         Series,
         SeriesRendererConfig,
         TimeSeriesChart;
+
+import 'base_chart.dart' show LayoutConfig;
+import 'base_chart_state.dart' show BaseChartState;
 import 'behaviors/chart_behavior.dart' show ChartBehavior;
 import 'behaviors/line_point_highlighter.dart' show LinePointHighlighter;
 import 'cartesian_chart.dart' show CartesianChart;
-import 'base_chart.dart' show LayoutConfig;
-import 'base_chart_state.dart' show BaseChartState;
 import 'selection_model_config.dart' show SelectionModelConfig;
 import 'user_managed_state.dart' show UserManagedState;
 
@@ -79,7 +80,7 @@ class TimeSeriesChart extends CartesianChart<DateTime> {
     // Optionally create primary and secondary measure axes if the chart was
     // configured with them. If no axes were configured, then the chart will
     // use its default types (usually a numeric axis).
-    return new common.TimeSeriesChart(
+    return common.TimeSeriesChart(
         layoutConfig: layoutConfig?.commonLayoutConfig,
         primaryMeasureAxis: primaryMeasureAxis?.createAxis(),
         secondaryMeasureAxis: secondaryMeasureAxis?.createAxis(),
@@ -92,6 +93,6 @@ class TimeSeriesChart extends CartesianChart<DateTime> {
   void addDefaultInteractions(List<ChartBehavior> behaviors) {
     super.addDefaultInteractions(behaviors);
 
-    behaviors.add(new LinePointHighlighter<DateTime>());
+    behaviors.add(LinePointHighlighter<DateTime>());
   }
 }

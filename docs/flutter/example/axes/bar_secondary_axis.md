@@ -4,7 +4,7 @@
 
 Example:
 
-```
+```dart
 /// Bar chart example
 
 import 'package:flutter/material.dart';
